@@ -10,6 +10,6 @@ namespace WpfApp1
 {
    public class Lamp
     {
-        public tcpclient lampstate { get; set; }
+        public bool lampstate { get; set; }
     }
 }

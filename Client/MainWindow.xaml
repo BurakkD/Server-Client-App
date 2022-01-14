@@ -7,7 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Lamba Butonu" HorizontalAlignment="Left" Margin="197,159,0,0" VerticalAlignment="Top" Width="75" Height="66" Click="Button_Click"/>
+        <Button Content="Lamba Butonu" HorizontalAlignment="Left" Margin="198,155,0,0" VerticalAlignment="Top" Width="83" Height="64" Click="Button_Click" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.794"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.519"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
         <Button Content="Text Butonu" HorizontalAlignment="Left" Margin="399,159,0,0" VerticalAlignment="Top" Width="85" Height="66" Click="Button_Click_1"/>
 
     </Grid>
