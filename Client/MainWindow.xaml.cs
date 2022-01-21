@@ -32,10 +32,22 @@ namespace Client
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Client1.Connect();
+           
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+
+            var result = Client2.randonNumber();
+            text.Text = result;
+
 
         }
     }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button  HorizontalAlignment="Left" Margin="216,132,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click">
+        <Button x:Name="btn"  HorizontalAlignment="Left" Margin="216,132,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click">
             <Button.Content>
                 <StackPanel>
                     <Image Source="Images/lamba.jpg"  Width="60" Height="60"/>
@@ -17,8 +17,6 @@
                 </StackPanel>
             </Button.Content>
         </Button>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
-        <CheckBox Content="CheckBox" Name="CHX1" HorizontalAlignment="Left" Margin="350,239,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
         <TextBox HorizontalAlignment="Left" Name="text" Height="23" Margin="441,166,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
 
 

@@ -13,7 +13,8 @@ namespace WpfApp1
 
         public static TcpListener serverListener;
         public static int port { get; set; }
-
+        public static bool[] clients = new bool[100];
+        
         public static void SetupServer()
         {
             serverListener = new TcpListener(IPAddress.Any, 8585);
@@ -21,27 +22,32 @@ namespace WpfApp1
         }
         public static void StartServer()
         {
-       
-        serverListener.Start();
 
-       serverListener.BeginAcceptTcpClient(callBack, null);
-            
+           
+            serverListener.Start();
 
+            serverListener.BeginAcceptTcpClient(callBack, null);
+        
         }
-  
+        
 
         public static void callBack(IAsyncResult ar)
         {
             Lamp lamp = new Lamp();
-            Connect connect = new Connect();
-
-            TcpClient client = serverListener.EndAcceptTcpClient(ar);
-            connect.clients(client);
-
+            
            
 
+            bool[] result = new bool[100];
+
+            TcpClient client = serverListener.EndAcceptTcpClient(ar);
+            Connect connect = new Connect(client);
+            result[0] = connect.deneme();
+            clients[0] = result[0];
+                   
 
         }
+        
+
 
 
 

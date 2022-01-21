@@ -7,37 +7,47 @@ using System.Net;
 using System.Net.Sockets;
 namespace WpfApp1
 {
-   public  class Connect
+    public  class Connect
     {
-
+        public static NetworkStream network;
+        public static byte[] buffer = new byte[4096];
+        public static string[] gelen = new string[100];
         Lamp lamp = new Lamp();
-        
-        public  bool clients(TcpClient _client)
+
+        TcpClient connect;
+        public  Connect(TcpClient _connect)
         {
-            if (_client == null)
+            connect = _connect;
+        }
+
+
+        public bool deneme()
+        {
+            if (connect.Connected == true)
+            {
+                return true;
+            }
+            else
             {
                 return false;
             }
-
-            else
-            {
-                if (lamp.lampstate == false)
-                {
-                    lamp.lampstate = true;
-                }
-                if (lamp.lampstate == true)
-                {
-                    lamp.lampstate = false;
-                }
-            }
-            return true;
+           
+        }
+        public void GetData()
+        {
+            network = connect.GetStream();
+            network.BeginRead(buffer, 0, 4096, new AsyncCallback(ReceiveCallback), null);
         }
 
+        private void ReceiveCallback(IAsyncResult ar)
+        {
+            int gelenveri = network.EndRead(ar);
+            byte[] _data = new byte[gelenveri];
+            Array.Copy(buffer, _data, gelenveri);
+            gelen[0] = Encoding.UTF8.GetString(_data);
+            connect.Close();
+            Server1.serverListener.Stop();
         }
-      
-   
-
-       
-
     }
+}
 

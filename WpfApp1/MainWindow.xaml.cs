@@ -25,43 +25,79 @@ namespace WpfApp1
     {
         public MainWindow()
         {
+
             Server1.SetupServer();
             Server1.StartServer();
+            
+           
 
 
         }
-      
+     
+
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
 
 
         }
-
+       
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-    
 
+            var resultt = Connect.gelen[0];
+
+            
+
+            var result = Server1.clients[0];
+            if (result == true)
+            {
+
+                btn.Background = Brushes.Yellow;
+
+
+            }
+            else
+            {
+
+            }
+
+
+
+
+        }
+
+      
 
 
         public void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Connect connect = new Connect();
 
-            var result = connect.clients(null);
-            if (result==true)
-            {
-                text.Text = "işlem başarılı";
-            }
-            else
-            {
-                text.Text = "işlem başarılı değil";
-            }
-        
+
+            
+
+
+
+
+
+
+            //var result = Server1.clients[0];
+            
+            //if (result == true)
+            //{
+            //    text.Text = "çalıştı";
+            //}
+            //else
+            //{
+            //    text.Text = "çalışmadı";
+            //}
+
+
 
         }
+
+        
     }
 }
 

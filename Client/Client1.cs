@@ -17,8 +17,12 @@ namespace Client
         {
 
             client.BeginConnect(Host, Port, new AsyncCallback(ConnectCallBack), null);
+          
+
+
 
         }
+   
         public static void ConnectCallBack(IAsyncResult asyncResult)
         {
             client.EndConnect(asyncResult);
